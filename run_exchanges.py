@@ -24,17 +24,15 @@ def exchange(sess):
 ## Create E swap operations
 def E_swaps(sess, E):
     start = time.time()
-
+    deadlockcount = 0
     for i in xrange(0, E):
-        while True:
-            try:
-                exchange(sess)
-            except Exception as e:
-                print e
-                continue
-            break
+        try:
+            exchange(sess)
+        except Exception as e:
+            deadlockcount += 1
+            continue
 
-        time.sleep(0.0001)
+    time.sleep(0.0001)
     stop = time.time()
     return stop-start
 

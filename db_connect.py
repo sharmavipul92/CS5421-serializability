@@ -5,7 +5,7 @@ def get_conn():
     server = 'localhost'
     dbname = 'cs4221'
     username = 'postgres'
-    password = 'admin'
+    password = 'postgres'
 
     engine = create_engine('postgres://%s:%s@localhost:5432/%s' % (username, password, dbname))
     
